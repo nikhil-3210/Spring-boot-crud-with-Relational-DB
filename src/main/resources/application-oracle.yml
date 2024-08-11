@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe  # Change to your Oracle DB URL
+    username: your_db_username               # Replace with your database username
+    password: your_db_password               # Replace with your database password
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect  # Use Oracle12cDialect for Oracle 12c and later
