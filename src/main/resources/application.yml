@@ -6,3 +6,18 @@ spring:
   profiles:
     active:
       - mysql
+
+management:
+  endpoints:
+    web:
+      exposure:
+#        include: health,info  # Include specific endpoints
+         include: '*'  # Include all endpoints
+        # exclude: beans,env  # Exclude specific endpoints
+      base-path: /manage
+      request:
+        request-logging:
+          enabled: true
+  cors:
+    allowed-origins: http://localhost:8080
+    allowed-methods: GET,POST
