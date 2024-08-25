@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/spring-boot-crud-sql  # Ensure this matches your PostgreSQL DB URL
+    username: root  # Replace with your PostgreSQL username (not "root" if that's not correct)
+    password: root  # Replace with your PostgreSQL password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  # Automatically creates/updates tables based on your entities
+    show-sql: true  # Enables SQL logging in the console
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect  # Use PostgreSQLDialect for PostgreSQL

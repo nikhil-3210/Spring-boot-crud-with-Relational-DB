@@ -4,6 +4,8 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -14,6 +16,8 @@ import java.util.UUID;
 @Component
 public class FirstFilter extends OncePerRequestFilter {
 
+    private static final Logger logger = LoggerFactory.getLogger(FirstFilter.class);
+
     private static final String REQUEST_ID = "requestId";
 
     @Override
@@ -21,7 +25,7 @@ public class FirstFilter extends OncePerRequestFilter {
 
         String uuid = UUID.randomUUID().toString();
         MDC.put(REQUEST_ID, uuid);
-
+        logger.info("Generated requestId: {}", uuid);
         try{
             filterChain.doFilter(request, response);
         } finally {

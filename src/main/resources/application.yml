@@ -5,7 +5,7 @@ spring:
     name: Spring-boot-crud-with-relational-DB
   profiles:
     active:
-      - mysql
+      - postgres
 
 management:
   endpoints:
